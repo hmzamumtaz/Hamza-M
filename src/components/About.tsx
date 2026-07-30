@@ -1,7 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
-
 const skills = [
   { name: "UX Research", level: 90 },
   { name: "UI Design", level: 95 },
@@ -16,168 +14,82 @@ const tools = [
   "After Effects", "Framer", "Webflow", "Miro",
 ];
 
-const easeOut = [0.25, 0.1, 0.25, 1] as const;
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.1, duration: 0.6, ease: easeOut },
-  }),
-};
-
 export default function About() {
   return (
-    <section id="about" className="py-28 lg:py-36 bg-[#0a0a0e]">
-      <div className="max-w-7xl mx-auto px-6">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          custom={0}
-          variants={fadeUp}
-          className="mb-6"
-        >
-          <span className="text-xs uppercase tracking-[0.2em] text-[#d4a853] font-medium">
-            About Me
-          </span>
-        </motion.div>
+    <section id="about" className="py-20 md:py-28 bg-white">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="text-xs uppercase tracking-widest text-[#0d7377] font-medium mb-2">
+          About Me
+        </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
+        <div className="grid md:grid-cols-2 gap-12 md:gap-16 mt-2">
           <div>
-            <motion.h2
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              custom={1}
-              variants={fadeUp}
-              className="text-4xl sm:text-5xl font-serif font-bold leading-tight text-[#f2f0ed] mb-8"
-            >
+            <h2 className="text-3xl sm:text-4xl font-bold leading-tight text-gray-900 mb-6">
               Crafting digital experiences at the intersection of{" "}
-              <span className="gold-shimmer">design &amp; technology</span>
-            </motion.h2>
+              <span className="text-[#0d7377]">design &amp; technology</span>
+            </h2>
 
-            <motion.p
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              custom={2}
-              variants={fadeUp}
-              className="text-[#8b8b96] leading-relaxed mb-4"
-            >
-              I&apos;m a Junior UX/UI Designer at Procter &amp; Gamble with hands-on
-              experience in usability testing, UX research, and prototyping within
-              an enterprise environment.
-            </motion.p>
+            <div className="space-y-4 text-gray-500 leading-relaxed">
+              <p>
+                I&apos;m a Junior UX/UI Designer at Procter &amp; Gamble with hands-on
+                experience in usability testing, UX research, and prototyping within
+                an enterprise environment.
+              </p>
+              <p>
+                My approach combines AI-driven design methodologies with traditional
+                UX principles to create solutions that are both innovative and
+                user-centered.
+              </p>
+              <p>
+                Based in Lahore, Pakistan — I&apos;m passionate about turning user
+                insights into clear, actionable design solutions.
+              </p>
+            </div>
 
-            <motion.p
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              custom={3}
-              variants={fadeUp}
-              className="text-[#8b8b96] leading-relaxed mb-4"
-            >
-              My approach combines AI-driven design methodologies with traditional
-              UX principles to create solutions that are both innovative and
-              user-centered.
-            </motion.p>
-
-            <motion.p
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              custom={4}
-              variants={fadeUp}
-              className="text-[#8b8b96] leading-relaxed mb-8"
-            >
-              Based in Lahore, Pakistan — I&apos;m passionate about turning user
-              insights into clear, actionable design solutions.
-            </motion.p>
-
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              custom={5}
-              variants={fadeUp}
-              className="inline-flex items-center gap-2 bg-[#8b7cf7]/10 text-[#8b7cf7] border border-[#8b7cf7]/20 rounded-lg px-4 py-2 text-sm font-medium"
-            >
+            <div className="inline-flex items-center gap-2 bg-[#0d7377]/10 text-[#0d7377] border border-[#0d7377]/20 rounded-md px-3.5 py-1.5 text-sm font-medium mt-6">
               <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm-1 15-4-4 1.41-1.41L11 14.17l5.59-5.59L18 10l-7 7Z" />
               </svg>
               Google UX Certified
-            </motion.div>
+            </div>
           </div>
 
           <div>
-            <motion.h3
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              custom={0}
-              variants={fadeUp}
-              className="text-xl font-semibold text-[#f2f0ed] mb-8"
-            >
+            <h3 className="text-lg font-semibold text-gray-900 mb-6">
               Skills &amp; Expertise
-            </motion.h3>
+            </h3>
 
-            <div className="space-y-5 mb-12">
-              {skills.map((skill, i) => (
-                <motion.div
-                  key={skill.name}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  custom={i + 1}
-                  variants={fadeUp}
-                >
-                  <div className="flex justify-between items-center mb-1.5">
-                    <span className="text-sm font-medium text-[#f2f0ed]">{skill.name}</span>
-                    <span className="text-xs text-[#5b5b66]">{skill.level}%</span>
+            <div className="space-y-4 mb-10">
+              {skills.map((skill) => (
+                <div key={skill.name}>
+                  <div className="flex justify-between items-center mb-1">
+                    <span className="text-sm font-medium text-gray-700">{skill.name}</span>
+                    <span className="text-xs text-gray-400">{skill.level}%</span>
                   </div>
-                  <div className="h-1.5 rounded-full bg-[#1a1a24] overflow-hidden">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${skill.level}%` }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1, delay: i * 0.1, ease: [0.25, 0.1, 0.25, 1] }}
-                      className="h-full rounded-full bg-gradient-to-r from-[#d4a853] to-[#e0b86a]"
+                  <div className="h-2 rounded-full bg-gray-100 overflow-hidden">
+                    <div
+                      className="h-full rounded-full bg-[#0d7377] transition-all duration-1000"
+                      style={{ width: `${skill.level}%` }}
                     />
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
 
-            <motion.h4
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              custom={skills.length + 1}
-              variants={fadeUp}
-              className="text-sm font-semibold text-[#f2f0ed] uppercase tracking-wider mb-4"
-            >
+            <h4 className="text-xs font-semibold text-gray-900 uppercase tracking-wider mb-3">
               Tools &amp; Technologies
-            </motion.h4>
+            </h4>
 
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              custom={skills.length + 2}
-              variants={fadeUp}
-              className="flex flex-wrap gap-2"
-            >
+            <div className="flex flex-wrap gap-2">
               {tools.map((tool) => (
                 <span
                   key={tool}
-                  className="rounded-lg border border-[#22222c] bg-[#121218] px-3.5 py-1.5 text-xs font-medium text-[#8b8b96] hover:border-[#d4a853]/20 hover:text-[#d4a853] transition-colors"
+                  className="rounded-md border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-medium text-gray-600"
                 >
                   {tool}
                 </span>
               ))}
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>

@@ -40,20 +40,20 @@ export default async function ProjectPage({ params }: Props) {
   const nextProject = projects[nextIndex];
 
   return (
-    <main className="min-h-screen bg-[#0a0a0e] text-[#f2f0ed] pt-[4.5rem]">
-      <div className="max-w-6xl mx-auto px-6 pb-24">
+    <main className="min-h-screen bg-white text-gray-900 pt-16">
+      <div className="max-w-5xl mx-auto px-6 pb-24">
         <Link
           href="/#work"
-          className="inline-flex items-center gap-2 text-[#5b5b66] hover:text-[#d4a853] transition-colors mb-12 group text-sm"
+          className="inline-flex items-center gap-1.5 text-sm text-gray-400 hover:text-[#0d7377] transition-colors mb-10 group"
         >
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="group-hover:-translate-x-1 transition-transform">
-            <path d="M10 12L6 8l4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="group-hover:-translate-x-0.5 transition-transform">
+            <path d="M8.75 10.5L5.25 7l3.5-3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
           Back to Work
         </Link>
 
-        <section className="mb-16">
-          <div className="relative w-full max-h-[70vh] overflow-hidden rounded-xl border border-[#22222c] mb-8">
+        <section className="mb-14">
+          <div className="relative w-full max-h-[60vh] overflow-hidden rounded-xl border border-gray-200 mb-6">
             <Image
               src={project.heroImage}
               alt={project.title}
@@ -64,40 +64,40 @@ export default async function ProjectPage({ params }: Props) {
             />
           </div>
 
-          <div className="flex flex-wrap gap-2 mb-6">
+          <div className="flex flex-wrap gap-1.5 mb-4">
             {project.services.map((service) => (
               <span
                 key={service}
-                className="rounded-lg border border-[#22222c] bg-[#121218] px-3 py-1 text-xs font-medium text-[#8b8b96]"
+                className="rounded-md border border-gray-200 bg-gray-50 px-2.5 py-0.5 text-[11px] font-medium text-gray-500"
               >
                 {service}
               </span>
             ))}
           </div>
 
-          <h1 className="text-4xl md:text-6xl font-serif font-bold mb-6 text-[#f2f0ed]">
+          <h1 className="text-3xl md:text-5xl font-bold mb-4 text-gray-900">
             {project.title}
           </h1>
 
-          <p className="text-lg text-[#8b8b96] max-w-3xl mb-10 leading-relaxed">
+          <p className="text-base text-gray-500 max-w-3xl mb-8 leading-relaxed">
             {project.description}
           </p>
 
-          <div className="flex flex-wrap gap-8 text-sm">
+          <div className="flex flex-wrap gap-6 text-sm">
             <div>
-              <span className="text-[#5b5b66] block mb-1 text-xs uppercase tracking-wider">Year</span>
-              <span className="text-[#f2f0ed] font-medium">{project.year}</span>
+              <span className="text-gray-400 block mb-0.5 text-xs">Year</span>
+              <span className="text-gray-900 font-medium">{project.year}</span>
             </div>
             {project.role && (
               <div>
-                <span className="text-[#5b5b66] block mb-1 text-xs uppercase tracking-wider">Role</span>
-                <span className="text-[#f2f0ed] font-medium">{project.role}</span>
+                <span className="text-gray-400 block mb-0.5 text-xs">Role</span>
+                <span className="text-gray-900 font-medium">{project.role}</span>
               </div>
             )}
             {project.tools && project.tools.length > 0 && (
               <div>
-                <span className="text-[#5b5b66] block mb-1 text-xs uppercase tracking-wider">Tools</span>
-                <span className="text-[#f2f0ed] font-medium">
+                <span className="text-gray-400 block mb-0.5 text-xs">Tools</span>
+                <span className="text-gray-900 font-medium">
                   {project.tools.join(", ")}
                 </span>
               </div>
@@ -106,37 +106,37 @@ export default async function ProjectPage({ params }: Props) {
         </section>
 
         {project.behanceUrl && (
-          <div className="mb-16">
+          <div className="mb-14">
             <a
               href={project.behanceUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg bg-[#d4a853] px-6 py-3 text-sm font-semibold text-[#0a0a0e] transition-all duration-300 hover:bg-[#e0b86a] hover:shadow-lg hover:shadow-[#d4a853]/20"
+              className="inline-flex items-center gap-2 rounded-md bg-[#0d7377] px-5 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:bg-[#0b5e62]"
             >
               View Full Case Study on Behance
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path d="M3.333 8h9.334M8 3.333L12.667 8 8 12.667" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </a>
           </div>
         )}
 
         {project.images.length > 0 && (
-          <section className="mb-16">
-            <h2 className="text-2xl font-serif font-bold text-[#f2f0ed] mb-8">
+          <section className="mb-14">
+            <h2 className="text-xl font-bold text-gray-900 mb-6">
               Project Gallery
             </h2>
             <div
               className={
                 project.images.length <= 5
-                  ? "grid grid-cols-1 md:grid-cols-2 gap-5"
-                  : "flex flex-col gap-10"
+                  ? "grid grid-cols-1 md:grid-cols-2 gap-4"
+                  : "flex flex-col gap-8"
               }
             >
               {project.images.map((image, index) => (
                 <div
                   key={index}
-                  className="relative w-full rounded-xl overflow-hidden border border-[#22222c] hover:border-[#d4a853]/20 transition-colors"
+                  className="relative w-full rounded-xl overflow-hidden border border-gray-200"
                 >
                   <Image
                     src={image}
@@ -153,23 +153,25 @@ export default async function ProjectPage({ params }: Props) {
         )}
 
         {project.caseStudy && project.caseStudy.length > 0 && (
-          <section className="mb-16">
-            <div className="space-y-16">
+          <section className="mb-14">
+            <div className="space-y-12">
               {project.caseStudy.map((section, index) => (
                 <div key={index}>
-                  <div className="flex items-center gap-4 mb-6">
-                    <span className="text-[#d4a853] text-sm font-mono">0{index + 1}</span>
-                    <h3 className="text-3xl font-serif font-bold text-[#f2f0ed]">{section.title}</h3>
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="text-[#0d7377] text-sm font-mono font-medium">
+                      0{index + 1}
+                    </span>
+                    <h3 className="text-2xl font-bold text-gray-900">{section.title}</h3>
                   </div>
-                  <div className="text-[#8b8b96] leading-relaxed space-y-4 max-w-3xl">
+                  <div className="text-gray-500 leading-relaxed space-y-3 max-w-3xl">
                     {section.content.split("\n\n").map((paragraph, pIndex) => (
                       <p key={pIndex}>{paragraph}</p>
                     ))}
                   </div>
                   {section.images && section.images.length > 0 && (
-                    <div className="mt-8 space-y-5">
+                    <div className="mt-6 space-y-4">
                       {section.images.map((image, imgIndex) => (
-                        <div key={imgIndex} className="w-full rounded-xl overflow-hidden border border-[#22222c]">
+                        <div key={imgIndex} className="w-full rounded-xl overflow-hidden border border-gray-200">
                           <Image
                             src={image}
                             alt={`${section.title} — Image ${imgIndex + 1}`}
@@ -190,24 +192,24 @@ export default async function ProjectPage({ params }: Props) {
 
         <Link
           href={`/work/${nextProject.slug}`}
-          className="group block relative w-full h-72 rounded-xl overflow-hidden border border-[#22222c]"
+          className="group block relative w-full h-64 rounded-xl overflow-hidden border border-gray-200"
         >
           <Image
             src={nextProject.thumbnail}
             alt={nextProject.title}
             fill
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
             unoptimized
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0e] via-[#0a0a0e]/40 to-transparent" />
-          <div className="absolute inset-0 flex flex-col justify-end p-8">
-            <span className="text-xs text-[#d4a853] uppercase tracking-wider mb-2 font-medium">
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+          <div className="absolute inset-0 flex flex-col justify-end p-6">
+            <span className="text-xs text-[#14b8a6] uppercase tracking-wider mb-1 font-medium">
               Next Project
             </span>
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-[#f2f0ed]">
+            <h3 className="text-xl md:text-2xl font-bold text-white">
               {nextProject.title}
             </h3>
-            <p className="text-[#8b8b96] text-sm mt-1 max-w-md">
+            <p className="text-gray-300 text-sm mt-0.5 max-w-md line-clamp-1">
               {nextProject.description}
             </p>
           </div>

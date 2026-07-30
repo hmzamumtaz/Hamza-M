@@ -1,142 +1,77 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
-
-const stats = [
-  { value: "12+", label: "Projects Delivered" },
-  { value: "2+", label: "Years of Experience" },
-  { value: "P&G", label: "Current Role" },
-];
-
-const easeOut = [0.25, 0.1, 0.25, 1] as const;
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: easeOut } },
-};
-
 export default function Hero() {
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, amount: 0.3 });
-
   return (
-    <section
-      id="hero"
-      ref={ref}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0a0a0e]"
-    >
-      <div className="pointer-events-none absolute inset-0 bg-noise" />
-
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute -top-1/2 -right-1/4 w-[800px] h-[800px] rounded-full bg-[#d4a853]/5 blur-[150px] animate-pulse-soft" />
-        <div className="absolute -bottom-1/2 -left-1/4 w-[600px] h-[600px] rounded-full bg-[#8b7cf7]/5 blur-[120px] animate-pulse-soft" style={{ animationDelay: "2s" }} />
-      </div>
-
-      <motion.div
-        initial="hidden"
-        animate={inView ? "visible" : "hidden"}
-        className="relative z-10 mx-auto max-w-6xl px-6 pt-24 pb-16"
-      >
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+    <section className="relative pt-24 pb-20 md:pt-32 md:pb-28 overflow-hidden">
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           <div>
-            <motion.div variants={fadeUp} className="mb-6">
-              <span className="inline-flex items-center gap-2 rounded-full border border-[#d4a853]/20 bg-[#d4a853]/5 px-4 py-1.5 text-sm text-[#d4a853]">
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#d4a853] opacity-75" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-[#d4a853]" />
-                </span>
-                UX/UI Designer at P&amp;G
-              </span>
-            </motion.div>
+            <div className="inline-flex items-center gap-2 rounded-md bg-[#0d7377]/10 px-3 py-1 text-xs font-medium text-[#0d7377] mb-6">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#0d7377]" />
+              UX/UI Designer at P&amp;G
+            </div>
 
-            <motion.h1
-              variants={fadeUp}
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-bold leading-[1.1] tracking-tight text-[#f2f0ed] mb-6"
-            >
-              Designing
-              <br />
-              <span className="gold-shimmer">Experiences</span>
-              <br />
-              That Matter
-            </motion.h1>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-gray-900 mb-5">
+              Hi, I&apos;m{" "}
+              <span className="text-[#0d7377]">Hamza M.</span>
+            </h1>
 
-            <motion.p
-              variants={fadeUp}
-              className="text-lg text-[#8b8b96] leading-relaxed max-w-lg mb-10"
-            >
+            <p className="text-lg text-gray-500 leading-relaxed mb-8 max-w-lg">
               AI-driven UX/UI Designer at Procter &amp; Gamble. I craft
               intuitive digital experiences through research, prototyping,
               and data-informed design.
-            </motion.p>
+            </p>
 
-            <motion.div variants={fadeUp} className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-3">
               <a
                 href="#work"
-                className="inline-flex items-center gap-2 rounded-lg bg-[#d4a853] px-7 py-3.5 text-sm font-semibold text-[#0a0a0e] transition-all duration-300 hover:bg-[#e0b86a] hover:shadow-lg hover:shadow-[#d4a853]/20"
+                className="inline-flex items-center gap-2 rounded-md bg-[#0d7377] px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:bg-[#0b5e62]"
               >
                 View My Work
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path d="M3.333 8h9.334M8 3.333L12.667 8 8 12.667" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </a>
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 rounded-lg border border-[#22222c] px-7 py-3.5 text-sm font-semibold text-[#f2f0ed] transition-all duration-300 hover:border-[#d4a853]/30 hover:bg-[#d4a853]/5"
+                className="inline-flex items-center gap-2 rounded-md border border-gray-300 px-6 py-3 text-sm font-semibold text-gray-700 transition-all duration-200 hover:border-gray-400 hover:bg-gray-50"
               >
                 Get In Touch
               </a>
-            </motion.div>
+            </div>
           </div>
 
-          <motion.div variants={fadeUp} className="hidden lg:flex justify-center">
+          <div className="hidden md:flex justify-center">
             <div className="relative">
-              <div className="w-80 h-80 rounded-full border border-[#22222c] bg-[#121218] flex items-center justify-center overflow-hidden">
-                <div className="text-center">
-                  <div className="text-[#d4a853] text-7xl font-serif font-bold mb-2">HM</div>
-                  <div className="text-[#5b5b66] text-xs uppercase tracking-[0.2em]">UX/UI Designer</div>
+              <div className="w-72 h-72 rounded-2xl bg-gradient-to-br from-[#0d7377] to-[#14b8a6] flex items-center justify-center shadow-xl">
+                <div className="text-center text-white">
+                  <div className="text-6xl font-bold mb-1">HM</div>
+                  <div className="text-sm opacity-80 tracking-widest uppercase">UX/UI</div>
                 </div>
               </div>
-              <div className="absolute -top-4 -right-4 w-24 h-24 rounded-lg border border-[#22222c] bg-[#121218] flex items-center justify-center text-[#d4a853] text-3xl animate-float-slow">
+              <div className="absolute -top-3 -right-3 w-16 h-16 rounded-xl bg-white shadow-lg border border-gray-100 flex items-center justify-center text-[#0d7377] text-2xl">
                 ✦
               </div>
-              <div className="absolute -bottom-2 -left-6 w-20 h-20 rounded-full border border-[#22222c] bg-[#121218] flex items-center justify-center text-[#8b7cf7] text-lg animate-float-slow" style={{ animationDelay: "1s" }}>
+              <div className="absolute -bottom-3 -left-3 w-14 h-14 rounded-full bg-white shadow-lg border border-gray-100 flex items-center justify-center text-[#14b8a6] text-lg">
                 ◆
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
 
-        <motion.div
-          variants={fadeUp}
-          className="flex flex-wrap items-center justify-center gap-10 sm:gap-16 mt-20 pt-12 border-t border-[#22222c]"
-        >
-          {stats.map((s) => (
+        <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-14 mt-16 pt-10 border-t border-gray-200">
+          {[
+            { value: "12+", label: "Projects Delivered" },
+            { value: "2+", label: "Years Experience" },
+            { value: "P&G", label: "Current Role" },
+          ].map((s) => (
             <div key={s.label} className="text-center">
-              <p className="text-2xl sm:text-3xl font-bold text-[#f2f0ed]">{s.value}</p>
-              <p className="mt-1 text-xs text-[#5b5b66] tracking-wide">{s.label}</p>
+              <p className="text-2xl font-bold text-gray-900">{s.value}</p>
+              <p className="mt-0.5 text-xs text-gray-400 tracking-wide">{s.label}</p>
             </div>
           ))}
-        </motion.div>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 0.8 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-      >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="flex flex-col items-center gap-2"
-        >
-          <span className="text-xs text-[#5b5b66] tracking-widest uppercase">Scroll</span>
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-[#5b5b66]">
-            <path d="M8 3v10m0 0l-3.5-3.5M8 13l3.5-3.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </section>
   );
 }
