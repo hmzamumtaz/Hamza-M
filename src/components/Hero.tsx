@@ -1,10 +1,54 @@
 "use client";
 
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
+
+const featured = [
+  {
+    slug: "trust-drive",
+    title: "Trust Drive",
+    thumbnail:
+      "https://mir-s3-cdn-cf.behance.net/projects/404/6ce0c3244350805.Y3JvcCwxNDAwLDEwOTUsMCwxNTI.jpg",
+    category: "UX Research · UI Design",
+  },
+  {
+    slug: "hr-management-saas-dashboard",
+    title: "HR Management SaaS Dashboard",
+    thumbnail:
+      "https://mir-s3-cdn-cf.behance.net/projects/404/e43368245897851.Y3JvcCwxNDAwLDEwOTUsMCwxNTI.jpg",
+    category: "Dashboard · Data Viz",
+  },
+  {
+    slug: "mobile-checkout-redesign",
+    title: "Mobile Checkout Redesign",
+    thumbnail:
+      "https://mir-s3-cdn-cf.behance.net/projects/404/8d35ea243883307.Y3JvcCwxNDAwLDEwOTUsMCwxNTI.jpg",
+    category: "UX Research · Mobile",
+  },
+  {
+    slug: "camp-quest",
+    title: "Camp Quest",
+    thumbnail:
+      "https://mir-s3-cdn-cf.behance.net/projects/404/4498f9239646213.Y3JvcCwxNDAwLDEwOTUsMCwxNTI.jpg",
+    category: "UX Research · Accessibility",
+  },
+];
+
 export default function Hero() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveIndex((i) => (i + 1) % featured.length);
+    }, 3500);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section className="relative pt-24 pb-20 md:pt-32 md:pb-28 overflow-hidden">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+        <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
           <div>
             <div className="inline-flex items-center gap-2 rounded-md bg-[#0d7377]/10 px-3 py-1 text-xs font-medium text-[#0d7377] mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-[#0d7377]" />
@@ -41,20 +85,51 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="hidden md:flex justify-center">
-            <div className="relative">
-              <div className="w-72 h-72 rounded-2xl bg-gradient-to-br from-[#0d7377] to-[#14b8a6] flex items-center justify-center shadow-xl">
-                <div className="text-center text-white">
-                  <div className="text-6xl font-bold mb-1">HM</div>
-                  <div className="text-sm opacity-80 tracking-widest uppercase">AI Designer and Frontend Developer</div>
-                </div>
-              </div>
-              <div className="absolute -top-3 -right-3 w-16 h-16 rounded-xl bg-white shadow-lg border border-gray-100 flex items-center justify-center text-[#0d7377] text-2xl">
-                ✦
-              </div>
-              <div className="absolute -bottom-3 -left-3 w-14 h-14 rounded-full bg-white shadow-lg border border-gray-100 flex items-center justify-center text-[#14b8a6] text-lg">
-                ◆
-              </div>
+          <div className="hidden md:block">
+            <div className="grid grid-cols-2 gap-3">
+              {featured.map((project, i) => (
+                <Link
+                  key={project.slug}
+                  href={`/work/${project.slug}`}
+                  className={`group relative overflow-hidden rounded-xl bg-gray-100 border transition-all duration-500 ${
+                    i === activeIndex
+                      ? "border-[#0d7377] shadow-lg shadow-[#0d7377]/10 scale-[1.02]"
+                      : "border-gray-200 opacity-60 hover:opacity-90"
+                  }`}
+                  style={{ aspectRatio: i === activeIndex ? "5/4" : "4/3" }}
+                >
+                  <Image
+                    src={project.thumbnail}
+                    alt={project.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    unoptimized
+                  />
+                  <div className={`absolute inset-0 transition-opacity duration-300 ${
+                    i === activeIndex
+                      ? "bg-gradient-to-t from-[#0d7377]/90 via-[#0d7377]/20 to-transparent opacity-100"
+                      : "bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100"
+                  }`} />
+                  <div className={`absolute bottom-0 left-0 right-0 p-3 transition-all duration-300 ${
+                    i === activeIndex ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100"
+                  }`}>
+                    <p className="text-white text-xs font-semibold leading-tight">{project.title}</p>
+                    <p className="text-white/70 text-[10px] mt-0.5">{project.category}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+
+            <div className="flex items-center justify-center gap-1.5 mt-4">
+              {featured.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setActiveIndex(i)}
+                  className={`h-1.5 rounded-full transition-all duration-300 ${
+                    i === activeIndex ? "w-6 bg-[#0d7377]" : "w-1.5 bg-gray-300 hover:bg-gray-400"
+                  }`}
+                />
+              ))}
             </div>
           </div>
         </div>
