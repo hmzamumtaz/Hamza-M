@@ -17,7 +17,7 @@ export default function Hero() {
             </h1>
 
             <p className="text-lg text-gray-500 leading-relaxed mb-8 max-w-lg">
-              AI-driven UX/UI Designer at Procter &amp; Gamble. I craft
+              AI-driven UX/UI Designer at Databiqs. I craft
               intuitive digital experiences through research, prototyping,
               and data-informed design.
             </p>
