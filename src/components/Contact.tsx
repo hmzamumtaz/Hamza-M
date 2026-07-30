@@ -41,10 +41,6 @@ export default function Contact() {
               hamza.mumtaz1@gmail.com
             </a>
 
-            <p className="text-gray-400 text-sm ml-12 mb-8">
-              Lahore, Pakistan
-            </p>
-
             <div className="flex gap-2">
               <a
                 href="https://linkedin.com/in/m-hamza-mumtaz"
