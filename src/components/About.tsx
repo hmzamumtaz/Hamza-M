@@ -10,28 +10,11 @@ const skills = [
 ];
 
 const tools = [
-  { name: "Figma", category: "design" },
-  { name: "Adobe XD", category: "design" },
-  { name: "Photoshop", category: "graphics" },
-  { name: "Illustrator", category: "graphics" },
-  { name: "After Effects", category: "motion" },
-  { name: "Framer", category: "prototyping" },
-  { name: "Webflow", category: "development" },
-  { name: "Miro", category: "collaboration" },
+  "Figma", "Adobe XD", "Photoshop", "Illustrator",
+  "After Effects", "Framer", "Webflow", "Miro",
 ];
 
-const toolCategories = [
-  { label: "Design", value: "design", color: "bg-blue-100 text-blue-700 border-blue-200" },
-  { label: "Graphics", value: "graphics", color: "bg-purple-100 text-purple-700 border-purple-200" },
-  { label: "Motion", value: "motion", color: "bg-orange-100 text-orange-700 border-orange-200" },
-  { label: "Prototyping", value: "prototyping", color: "bg-green-100 text-green-700 border-green-200" },
-  { label: "Development", value: "development", color: "bg-rose-100 text-rose-700 border-rose-200" },
-  { label: "Collaboration", value: "collaboration", color: "bg-cyan-100 text-cyan-700 border-cyan-200" },
-];
 
-function getToolCategory(value: string) {
-  return toolCategories.find((c) => c.value === value)!;
-}
 
 export default function About() {
   return (
@@ -82,17 +65,14 @@ export default function About() {
                 Tools & Technologies
               </h4>
               <div className="flex flex-wrap gap-2">
-                {tools.map((tool) => {
-                  const cat = getToolCategory(tool.category);
-                  return (
-                    <span
-                      key={tool.name}
-                      className={`rounded-full border px-3 py-1 text-xs font-medium ${cat.color}`}
-                    >
-                      {tool.name}
-                    </span>
-                  );
-                })}
+                {tools.map((tool) => (
+                  <span
+                    key={tool}
+                    className="rounded-md border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-medium text-gray-600"
+                  >
+                    {tool}
+                  </span>
+                ))}
               </div>
             </div>
           </div>
