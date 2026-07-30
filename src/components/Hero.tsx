@@ -8,7 +8,7 @@ export default function Hero() {
           <div>
             <div className="inline-flex items-center gap-2 rounded-md bg-[#0d7377]/10 px-3 py-1 text-xs font-medium text-[#0d7377] mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-[#0d7377]" />
-              UX/UI Designer at P&amp;G
+              UX/UI Designer at Databiqs
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-gray-900 mb-5">
