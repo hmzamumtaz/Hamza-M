@@ -31,7 +31,7 @@ export default function About() {
 
             <div className="space-y-4 text-gray-500 leading-relaxed">
               <p>
-                I&apos;m a Junior UX/UI Designer at Procter &amp; Gamble with hands-on
+                I&apos;m a Mid-Level AI UX/UI Designer at Databiqs with hands-on
                 experience in usability testing, UX research, and prototyping within
                 an enterprise environment.
               </p>

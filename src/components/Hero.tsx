@@ -46,7 +46,7 @@ export default function Hero() {
               <div className="w-72 h-72 rounded-2xl bg-gradient-to-br from-[#0d7377] to-[#14b8a6] flex items-center justify-center shadow-xl">
                 <div className="text-center text-white">
                   <div className="text-6xl font-bold mb-1">HM</div>
-                  <div className="text-sm opacity-80 tracking-widest uppercase">UX/UI</div>
+                  <div className="text-sm opacity-80 tracking-widest uppercase">AI Designer and Frontend Developer</div>
                 </div>
               </div>
               <div className="absolute -top-3 -right-3 w-16 h-16 rounded-xl bg-white shadow-lg border border-gray-100 flex items-center justify-center text-[#0d7377] text-2xl">
@@ -63,7 +63,7 @@ export default function Hero() {
           {[
             { value: "12+", label: "Projects Delivered" },
             { value: "2+", label: "Years Experience" },
-            { value: "P&G", label: "Current Role" },
+            { value: "Databiqs", label: "Current Role" },
           ].map((s) => (
             <div key={s.label} className="text-center">
               <p className="text-2xl font-bold text-gray-900">{s.value}</p>
