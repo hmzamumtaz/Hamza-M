@@ -22,7 +22,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
+    const onScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -41,39 +41,44 @@ export default function Navbar() {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 h-20 transition-all duration-500 ${
+      transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+      className={`fixed top-0 left-0 right-0 z-50 h-[4.5rem] transition-all duration-500 ${
         scrolled
-          ? "bg-[#0a0a0a]/80 backdrop-blur-xl border-b border-white/5"
+          ? "bg-[#0a0a0e]/80 backdrop-blur-xl border-b border-[#22222c]"
           : "bg-transparent"
       }`}
     >
       <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-6 lg:px-8">
-        {/* Logo */}
-        <Link href="/" className="text-xl font-bold tracking-tight text-white">
-          Hamza M<span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">.</span>
+        <Link
+          href="/"
+          className="flex items-center gap-2.5 group"
+        >
+          <span className="flex items-center justify-center w-9 h-9 rounded-lg bg-[#d4a853]/10 border border-[#d4a853]/20 text-[#d4a853] text-sm font-bold tracking-tight group-hover:bg-[#d4a853]/20 transition-colors">
+            HM
+          </span>
+          <span className="text-sm font-medium text-[#f2f0ed] hidden sm:block">
+            Hamza M.
+          </span>
         </Link>
 
-        {/* Desktop */}
-        <div className="hidden items-center gap-10 md:flex">
+        <div className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
             <button
               key={link.href}
               onClick={() => handleNav(link.href)}
-              className="text-sm font-medium text-white/60 transition-colors duration-300 hover:text-white"
+              className="relative text-sm font-medium text-[#8b8b96] transition-colors duration-300 hover:text-[#f2f0ed] after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-[#d4a853] after:transition-all after:duration-300 hover:after:w-full"
             >
               {link.label}
             </button>
           ))}
           <button
             onClick={() => handleNav("#contact")}
-            className="rounded-full bg-gradient-to-r from-purple-500 to-pink-500 px-6 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25"
+            className="rounded-lg bg-[#d4a853] px-5 py-2.5 text-sm font-semibold text-[#0a0a0e] transition-all duration-300 hover:bg-[#e0b86a] hover:shadow-lg hover:shadow-[#d4a853]/20"
           >
             Let&apos;s Talk
           </button>
         </div>
 
-        {/* Hamburger */}
         <button
           onClick={() => setMobileOpen((o) => !o)}
           className="relative z-[60] flex h-10 w-10 flex-col items-center justify-center gap-1.5 md:hidden"
@@ -82,22 +87,21 @@ export default function Navbar() {
           <motion.span
             animate={mobileOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
             transition={{ duration: 0.3 }}
-            className="block h-0.5 w-6 bg-white origin-center"
+            className="block h-0.5 w-6 bg-[#f2f0ed] origin-center"
           />
           <motion.span
-            animate={mobileOpen ? { opacity: 0, x: -10 } : { opacity: 1, x: 0 }}
+            animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }}
             transition={{ duration: 0.2 }}
-            className="block h-0.5 w-6 bg-white"
+            className="block h-0.5 w-6 bg-[#f2f0ed]"
           />
           <motion.span
             animate={mobileOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
             transition={{ duration: 0.3 }}
-            className="block h-0.5 w-6 bg-white origin-center"
+            className="block h-0.5 w-6 bg-[#f2f0ed] origin-center"
           />
         </button>
       </div>
 
-      {/* Mobile Overlay */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -105,29 +109,29 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#0a0a0a]/95 backdrop-blur-xl md:hidden"
+            className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#0a0a0e]/98 backdrop-blur-2xl md:hidden"
           >
             <div className="flex flex-col items-center gap-10">
               {navLinks.map((link, i) => (
                 <motion.button
                   key={link.href}
-                  initial={{ opacity: 0, y: 40 }}
+                  initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 20 }}
                   transition={{ duration: 0.4, delay: i * 0.1 }}
                   onClick={() => handleNav(link.href)}
-                  className="text-4xl font-bold text-white transition-colors hover:text-purple-400"
+                  className="text-4xl font-serif font-bold text-[#f2f0ed] transition-colors hover:text-[#d4a853]"
                 >
                   {link.label}
                 </motion.button>
               ))}
               <motion.button
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 20 }}
                 transition={{ duration: 0.4, delay: navLinks.length * 0.1 }}
                 onClick={() => handleNav("#contact")}
-                className="mt-4 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 px-10 py-4 text-lg font-semibold text-white"
+                className="mt-4 rounded-lg bg-[#d4a853] px-10 py-4 text-lg font-semibold text-[#0a0a0e]"
               >
                 Let&apos;s Talk
               </motion.button>

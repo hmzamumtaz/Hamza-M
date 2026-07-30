@@ -4,48 +4,48 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#050505] border-t border-white/5 py-16">
+    <footer className="bg-[#121218] border-t border-[#22222c] py-16">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-          <div>
-            <Link href="/" className="text-xl font-bold text-white">
-              Hamza M<span className="bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent">.</span>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+          <div className="md:col-span-2">
+            <Link href="/" className="inline-flex items-center gap-2.5 group">
+              <span className="flex items-center justify-center w-9 h-9 rounded-lg bg-[#d4a853]/10 border border-[#d4a853]/20 text-[#d4a853] text-sm font-bold">
+                HM
+              </span>
+              <span className="text-sm font-medium text-[#f2f0ed]">
+                Hamza M.
+              </span>
             </Link>
-            <p className="text-gray-500 text-sm mt-4 max-w-xs leading-relaxed">
+            <p className="text-[#5b5b66] text-sm mt-4 max-w-xs leading-relaxed">
               Crafting digital experiences at the intersection of design and technology.
+              Based in Lahore, Pakistan.
             </p>
           </div>
 
           <div>
-            <h4 className="text-white font-semibold text-sm mb-4 uppercase tracking-wider">
+            <h4 className="text-[#f2f0ed] font-semibold text-xs mb-5 uppercase tracking-wider">
               Navigation
             </h4>
             <ul className="space-y-3">
-              <li>
-                <Link href="/#" className="text-gray-500 text-sm hover:text-white transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href="/#about" className="text-gray-500 text-sm hover:text-white transition-colors">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href="/#work" className="text-gray-500 text-sm hover:text-white transition-colors">
-                  Work
-                </Link>
-              </li>
-              <li>
-                <Link href="/#contact" className="text-gray-500 text-sm hover:text-white transition-colors">
-                  Contact
-                </Link>
-              </li>
+              {[
+                { label: "About", href: "/#about" },
+                { label: "Work", href: "/#work" },
+                { label: "Contact", href: "/#contact" },
+              ].map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-[#5b5b66] text-sm hover:text-[#d4a853] transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div>
-            <h4 className="text-white font-semibold text-sm mb-4 uppercase tracking-wider">
+            <h4 className="text-[#f2f0ed] font-semibold text-xs mb-5 uppercase tracking-wider">
               Connect
             </h4>
             <ul className="space-y-3">
@@ -54,7 +54,7 @@ export default function Footer() {
                   href="https://linkedin.com/in/m-hamza-mumtaz"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-500 text-sm hover:text-white transition-colors"
+                  className="text-[#5b5b66] text-sm hover:text-[#d4a853] transition-colors"
                 >
                   LinkedIn
                 </a>
@@ -64,7 +64,7 @@ export default function Footer() {
                   href="https://www.behance.net/hamzamumtaz6"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-500 text-sm hover:text-white transition-colors"
+                  className="text-[#5b5b66] text-sm hover:text-[#d4a853] transition-colors"
                 >
                   Behance
                 </a>
@@ -72,7 +72,7 @@ export default function Footer() {
               <li>
                 <a
                   href="mailto:hamza.mumtaz1@gmail.com"
-                  className="text-gray-500 text-sm hover:text-white transition-colors"
+                  className="text-[#5b5b66] text-sm hover:text-[#d4a853] transition-colors"
                 >
                   Email
                 </a>
@@ -81,11 +81,14 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-gray-500 text-sm">
+        <div className="border-t border-[#22222c] pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-[#5b5b66] text-xs">
             &copy; {currentYear} Hamza M. All rights reserved.
           </p>
-          <Link href="/#" className="text-gray-500 text-sm hover:text-white transition-colors">
+          <Link
+            href="/#"
+            className="text-[#5b5b66] text-xs hover:text-[#d4a853] transition-colors"
+          >
             Back to top
           </Link>
         </div>
