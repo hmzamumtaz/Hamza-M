@@ -29,19 +29,18 @@ export default function Contact() {
               hear from you.
             </p>
 
-            <a
-              href="mailto:hamza.mumtaz1@gmail.com"
-              className="inline-flex items-center gap-3 text-base font-medium text-gray-900 hover:text-[#0d7377] transition-colors mb-2"
-            >
-              <span className="w-9 h-9 rounded-md bg-gray-100 border border-gray-200 flex items-center justify-center">
-                <svg className="w-4 h-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+            <div className="flex items-center gap-4">
+              <a
+                href="mailto:hamza.mumtaz1@gmail.com"
+                className="flex items-center justify-center w-9 h-9 rounded-md bg-gray-100 border border-gray-200 text-gray-400 hover:text-[#0d7377] hover:border-[#0d7377]/30 transition-all duration-200"
+                aria-label="Email"
+              >
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                 </svg>
-              </span>
-              hamza.mumtaz1@gmail.com
-            </a>
-
-            <div className="flex gap-2">
+              </a>
+              <span className="text-xs text-gray-300">|</span>
+              <span className="text-xs font-medium text-gray-400 uppercase tracking-wider">Socials</span>
               <a
                 href="https://linkedin.com/in/m-hamza-mumtaz"
                 target="_blank"
