@@ -134,17 +134,26 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-14 mt-16 pt-10 border-t border-gray-200">
-          {[
-            { value: "12+", label: "Projects Delivered" },
-            { value: "2+", label: "Years Experience" },
-            { value: "Databiqs", label: "Current Role" },
-          ].map((s) => (
-            <div key={s.label} className="text-center">
-              <p className="text-2xl font-bold text-gray-900">{s.value}</p>
-              <p className="mt-0.5 text-xs text-gray-400 tracking-wide">{s.label}</p>
-            </div>
-          ))}
+        <div className="mt-16 pt-8 border-t border-gray-200">
+          <div className="grid grid-cols-3 gap-4">
+            {[
+              { value: "12+", label: "Projects Delivered", icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" },
+              { value: "2+", label: "Years Experience", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+              { value: "Databiqs", label: "Current Role", icon: "M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" },
+            ].map((s) => (
+              <div key={s.label} className="flex items-center gap-3 rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#0d7377]/10">
+                  <svg className="h-5 w-5 text-[#0d7377]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d={s.icon} />
+                  </svg>
+                </div>
+                <div className="min-w-0">
+                  <p className="text-xl font-bold text-gray-900 leading-none mb-0.5">{s.value}</p>
+                  <p className="text-[11px] text-gray-500 tracking-wide truncate">{s.label}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
