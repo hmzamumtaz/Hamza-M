@@ -35,6 +35,12 @@ const featured = [
   },
 ];
 
+const skills = [
+  "UX Research", "UI Design", "Prototyping",
+  "Data Visualization", "Mobile Design", "Design Systems",
+  "Accessibility", "Interaction Design",
+];
+
 export default function Hero() {
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -55,16 +61,32 @@ export default function Hero() {
               UX/UI Designer at Databiqs
             </div>
 
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-gray-900 mb-5">
-              Hi, I&apos;m{" "}
-              <span className="text-[#0d7377]">Hamza M.</span>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.15] tracking-tight text-gray-900 mb-5">
+              Crafting digital experiences at the intersection of{" "}
+              <span className="text-[#0d7377]">design & technology</span>
             </h1>
 
-            <p className="text-lg text-gray-500 leading-relaxed mb-8 max-w-lg">
-              AI-driven UX/UI Designer at Databiqs. I craft
-              intuitive digital experiences through research, prototyping,
-              and data-informed design.
+            <p className="text-base text-gray-500 leading-relaxed mb-6 max-w-lg">
+              AI-driven UX/UI Designer passionate about building intuitive,
+              human-centered products through research, prototyping, and
+              data-informed design.
             </p>
+
+            <div className="mb-8">
+              <p className="text-xs uppercase tracking-widest text-gray-400 font-medium mb-3">
+                Skills & Expertise
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="text-xs font-medium px-3 py-1.5 rounded-full bg-white border border-gray-200 text-gray-600 shadow-sm"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
 
             <div className="flex flex-wrap gap-3">
               <a
@@ -86,7 +108,7 @@ export default function Hero() {
           </div>
 
           <div className="hidden md:block">
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-2 gap-4">
               {featured.map((project, i) => (
                 <Link
                   key={project.slug}
