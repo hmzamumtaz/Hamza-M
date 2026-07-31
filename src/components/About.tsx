@@ -10,8 +10,11 @@ const skills = [
 ];
 
 const tools = [
-  "Figma", "Adobe XD", "Photoshop", "Illustrator",
-  "After Effects", "Framer", "Webflow", "Miro",
+  "Figma", "Adobe XD", "Sketch", "Miro", "Maze", "Visily",
+  "Indesign", "Zeplin", "Jira", "Webflow", "Framer",
+  "Loveable", "Claude", "VS Code", "Cursor", "UX Pilot",
+  "Stitch", "Google AI Studio", "Banani", "Confluence",
+  "Mural", "Kanban", "AI Frontend Development", "Synthesia",
 ];
 
 
