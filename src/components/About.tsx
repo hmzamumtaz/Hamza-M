@@ -76,17 +76,17 @@ export default function About() {
               </div>
             </div>
 
-            <div className="mt-6 space-y-5">
+            <div className="mt-6 grid grid-cols-2 gap-3">
               {toolCategories.map((cat) => (
-                <div key={cat.label}>
-                  <h4 className="text-xs font-semibold text-gray-900 uppercase tracking-wider mb-2.5">
+                <div key={cat.label} className="rounded-lg border border-gray-200 bg-white p-3 shadow-sm">
+                  <h4 className="text-[10px] font-semibold text-[#0d7377] uppercase tracking-wider mb-2">
                     {cat.label}
                   </h4>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-1.5">
                     {cat.items.map((tool) => (
                       <span
                         key={tool}
-                        className="rounded-md border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-medium text-gray-600"
+                        className="rounded-md border border-gray-100 bg-gray-50 px-2 py-0.5 text-[10px] font-medium text-gray-500"
                       >
                         {tool}
                       </span>
