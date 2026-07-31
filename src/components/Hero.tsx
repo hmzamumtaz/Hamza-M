@@ -1,32 +1,32 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import Link from "next/link";
+import ProjectThumbnail from "./ProjectThumbnail";
 
 const featured = [
   {
     slug: "trust-drive",
     title: "Trust Drive",
-    thumbnail: "/thumbnails/trust-drive.svg",
+    color: "#1a1a2e",
     category: "UX Research · UI Design",
   },
   {
     slug: "hr-management-saas-dashboard",
     title: "HR Management SaaS Dashboard",
-    thumbnail: "/thumbnails/hr-dashboard.svg",
+    color: "#2d3436",
     category: "Dashboard · Data Viz",
   },
   {
     slug: "mobile-checkout-redesign",
     title: "Mobile Checkout Redesign",
-    thumbnail: "/thumbnails/mobile-checkout.svg",
+    color: "#6c5ce7",
     category: "UX Research · Mobile",
   },
   {
     slug: "camp-quest",
     title: "Camp Quest",
-    thumbnail: "/thumbnails/camp-quest.svg",
+    color: "#e17055",
     category: "UX Research · Accessibility",
   },
 ];
@@ -95,13 +95,17 @@ export default function Hero() {
                   }`}
                   style={{ aspectRatio: i === activeIndex ? "5/4" : "4/3" }}
                 >
-                  <Image
-                    src={project.thumbnail}
-                    alt={project.title}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    unoptimized
-                  />
+                  <div className="absolute inset-0">
+                    <ProjectThumbnail
+                      title={project.title}
+                      color={project.color}
+                      category={
+                        project.slug === "mobile-checkout-redesign" || project.slug === "camp-quest"
+                          ? "mobile"
+                          : "web"
+                      }
+                    />
+                  </div>
                   <div className={`absolute inset-0 transition-opacity duration-300 ${
                     i === activeIndex
                       ? "bg-gradient-to-t from-[#0d7377]/90 via-[#0d7377]/20 to-transparent opacity-100"

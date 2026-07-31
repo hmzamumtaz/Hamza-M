@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { getProjectsByCategory } from "@/data/projects";
+import ProjectThumbnail from "./ProjectThumbnail";
 
 const categories = [
   { label: "All Work", value: "all" },
@@ -62,12 +62,10 @@ export default function Work() {
               >
                 <div className="relative overflow-hidden rounded-xl bg-gray-100 border border-gray-200 shadow-sm transition-all duration-300 group-hover:shadow-md group-hover:-translate-y-0.5">
                   <div className="relative aspect-[4/3]">
-                    <Image
-                      src={project.thumbnail}
-                      alt={project.title}
-                      unoptimized
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    <ProjectThumbnail
+                      title={project.title}
+                      color={project.color}
+                      category={project.category}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
