@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d7377"/>
+      <stop offset="100%" stop-color="#0b5e62"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14a8ad" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#0d7377" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <circle cx="650" cy="100" r="250" fill="url(#glow)"/>
+  <circle cx="150" cy="500" r="200" fill="url(#glow)"/>
+  <path d="M200 420 L400 420 L450 350 L350 350 L320 300 L250 300 L220 350 L120 350 L170 420Z" fill="#1a9da3" opacity="0.4"/>
+  <path d="M250 420 L550 420 L600 350 L500 350 L470 300 L400 300 L370 350 L270 350Z" fill="#23b3b8" opacity="0.3"/>
+  <circle cx="260" cy="420" r="18" fill="#1a1a2e"/>
+  <circle cx="260" cy="420" r="10" fill="#e8e8e8"/>
+  <circle cx="440" cy="420" r="18" fill="#1a1a2e"/>
+  <circle cx="440" cy="420" r="10" fill="#e8e8e8"/>
+  <line x1="500" y1="260" x2="500" y2="300" stroke="#14a8ad" stroke-width="3" stroke-linecap="round"/>
+  <line x1="480" y1="280" x2="520" y2="280" stroke="#14a8ad" stroke-width="3" stroke-linecap="round"/>
+  <text x="40" y="60" font-family="system-ui, sans-serif" font-size="28" font-weight="700" fill="white" opacity="0.15">TRUST DRIVE</text>
+  <text x="40" y="550" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="white" opacity="0.5">UX Research · UI Design</text>
+  <rect x="40" y="565" width="30" height="3" rx="1.5" fill="#14a8ad"/>
+</svg>

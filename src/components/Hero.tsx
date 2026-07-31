@@ -8,29 +8,25 @@ const featured = [
   {
     slug: "trust-drive",
     title: "Trust Drive",
-    thumbnail:
-      "https://mir-s3-cdn-cf.behance.net/projects/404/6ce0c3244350805.Y3JvcCwxNDAwLDEwOTUsMCwxNTI.jpg",
+    thumbnail: "/thumbnails/trust-drive.svg",
     category: "UX Research · UI Design",
   },
   {
     slug: "hr-management-saas-dashboard",
     title: "HR Management SaaS Dashboard",
-    thumbnail:
-      "https://mir-s3-cdn-cf.behance.net/projects/404/e43368245897851.Y3JvcCwxNDAwLDEwOTUsMCwxNTI.jpg",
+    thumbnail: "/thumbnails/hr-dashboard.svg",
     category: "Dashboard · Data Viz",
   },
   {
     slug: "mobile-checkout-redesign",
     title: "Mobile Checkout Redesign",
-    thumbnail:
-      "https://mir-s3-cdn-cf.behance.net/projects/404/8d35ea243883307.Y3JvcCwxNDAwLDEwOTUsMCwxNTI.jpg",
+    thumbnail: "/thumbnails/mobile-checkout.svg",
     category: "UX Research · Mobile",
   },
   {
     slug: "camp-quest",
     title: "Camp Quest",
-    thumbnail:
-      "https://mir-s3-cdn-cf.behance.net/projects/404/4498f9239646213.Y3JvcCwxNDAwLDEwOTUsMCwxNTI.jpg",
+    thumbnail: "/thumbnails/camp-quest.svg",
     category: "UX Research · Accessibility",
   },
 ];
