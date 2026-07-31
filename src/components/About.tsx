@@ -7,6 +7,8 @@ const skills = [
   { name: "User Testing", level: 80 },
   { name: "Design Systems", level: 88 },
   { name: "AI-Driven Design", level: 92 },
+  { name: "Frontend Development", level: 85 },
+  { name: "AI-Assisted Development", level: 90 },
 ];
 
 const toolCategories = [
@@ -20,7 +22,7 @@ const toolCategories = [
   },
   {
     label: "AI & Development",
-    items: ["Claude", "Google AI Studio", "Loveable", "Cursor", "VS Code", "Synthesia", "Banani", "AI Frontend Development"],
+    items: ["Claude", "OpenCode", "Cursor", "VS Code", "GitHub Copilot", "Google AI Studio", "Next.js", "React", "TypeScript", "Tailwind CSS", "Lovable", "Synthesia"],
   },
   {
     label: "Project Management",
@@ -53,14 +55,14 @@ export default function About() {
             <div className="bg-white rounded-2xl border border-gray-200 p-8 shadow-sm">
               <div className="space-y-4 text-gray-500 leading-relaxed">
                 <p>
-                  I&apos;m a Mid-Level AI UX/UI Designer at Databiqs with hands-on
-                  experience in usability testing, UX research, and prototyping within
-                  an enterprise environment.
+                  I&apos;m a Mid-Level AI UX/UI Developer & Designer at Databiqs with hands-on
+                  experience in usability testing, UX research, prototyping, and
+                  AI-assisted frontend development within an enterprise environment.
                 </p>
                 <p>
-                  My approach combines AI-driven design methodologies with traditional
-                  UX principles to create solutions that are both innovative and
-                  user-centered.
+                  My approach combines AI-driven design & development methodologies with traditional
+                  UX principles to build solutions that are both innovative and
+                  user-centered — from research to production-ready code.
                 </p>
                 <p>
                   Based in Lahore, Pakistan — I&apos;m passionate about turning user

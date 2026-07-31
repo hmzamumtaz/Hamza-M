@@ -10,9 +10,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Hamza M. — UX/UI Designer",
+  title: "Hamza M. — UX/UI Developer & Designer",
   description:
-    "AI-driven UX/UI Designer at Procter & Gamble. Crafting intuitive digital experiences through research, prototyping, and data-informed design.",
+    "AI-driven UX/UI Developer & Designer at Databiqs. Crafting intuitive digital experiences through research, prototyping, and AI-assisted frontend development.",
 };
 
 export default function RootLayout({

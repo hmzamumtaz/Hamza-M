@@ -52,7 +52,7 @@ export default function Hero() {
           <div>
             <div className="inline-flex items-center gap-2 rounded-md bg-[#0d7377]/10 px-3 py-1 text-xs font-medium text-[#0d7377] mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-[#0d7377]" />
-              UX/UI Designer at Databiqs
+              UX/UI Developer & Designer at Databiqs
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-gray-900 mb-5">
@@ -61,9 +61,9 @@ export default function Hero() {
             </h1>
 
             <p className="text-lg text-gray-500 leading-relaxed mb-8 max-w-lg">
-              AI-driven UX/UI Designer at Databiqs. I craft
+              AI-driven UX/UI Developer & Designer at Databiqs. I craft
               intuitive digital experiences through research, prototyping,
-              and data-informed design.
+              and AI-assisted frontend development.
             </p>
 
             <div className="flex flex-wrap gap-3">
