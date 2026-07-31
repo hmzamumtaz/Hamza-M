@@ -13,27 +13,20 @@ function getProjectInitials(title: string): string {
     .toUpperCase();
 }
 
-function hexToRgba(hex: string, alpha: number): string {
-  const r = parseInt(hex.slice(1, 3), 16);
-  const g = parseInt(hex.slice(3, 5), 16);
-  const b = parseInt(hex.slice(5, 7), 16);
-  return `rgba(${r},${g},${b},${alpha})`;
-}
+const categoryIcons: Record<string, string> = {
+  web: "M60 140 L100 100 L140 140 L140 220 L60 220Z M80 160 L120 160 M80 180 L120 180 M80 200 L100 200",
+  mobile:
+    "M120 90 L120 230 Q120 240 130 240 L170 240 Q180 240 180 230 L180 90 Q180 80 170 80 L130 80 Q120 80 120 90Z M145 215 a5 5 0 110 10 a5 5 0 010 -10",
+  "case-study":
+    "M80 100 L80 220 L160 220 L160 140 L130 100Z M130 100 L130 140 L160 140 M95 150 L145 150 M95 165 L145 165 M95 180 L130 180",
+};
 
-function isLightColor(hex: string): boolean {
-  const r = parseInt(hex.slice(1, 3), 16);
-  const g = parseInt(hex.slice(3, 5), 16);
-  const b = parseInt(hex.slice(5, 7), 16);
-  return r * 0.299 + g * 0.587 + b * 0.114 > 160;
-}
-
-export default function ProjectThumbnail({ title, color, category }: Props) {
-  const light = isLightColor(color);
-  const textColor = light ? color : "#ffffff";
-  const metaColor = light ? hexToRgba(color, 0.7) : "rgba(255,255,255,0.6)";
-  const glowColor = light ? hexToRgba(color, 0.08) : "rgba(255,255,255,0.04)";
-  const decorColor = light ? hexToRgba(color, 0.12) : "rgba(255,255,255,0.08)";
-  const decorBorder = light ? hexToRgba(color, 0.2) : "rgba(255,255,255,0.15)";
+export default function ProjectThumbnail({ title, category, color: _color }: Props) {
+  const accent = "#0d7377";
+  const accentLight = "#e6f3f3";
+  const accentMuted = "#b8d9d9";
+  const iconPath = categoryIcons[category] || categoryIcons.web;
+  const initials = getProjectInitials(title);
 
   return (
     <svg
@@ -43,51 +36,66 @@ export default function ProjectThumbnail({ title, color, category }: Props) {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       role="img"
-      aria-label={`${title} project thumbnail`}
+      aria-label={`${title}`}
       preserveAspectRatio="xMidYMid slice"
     >
-      <rect width="400" height="300" fill={color} />
-      <circle cx="350" cy="50" r="180" fill={glowColor} />
-      <circle cx="50" cy="280" r="160" fill={glowColor} />
+      <rect width="400" height="300" fill="#ffffff" />
 
-      <g transform="translate(40, 20)">
-        <rect x="20" y="20" width="160" height="100" rx="8" fill={decorColor} stroke={decorBorder} strokeWidth="1" />
-        <rect x="35" y="40" width="50" height="8" rx="4" fill={decorBorder} />
-        <rect x="35" y="55" width="40" height="6" rx="3" fill={decorBorder} />
-        <rect x="35" y="68" width="45" height="6" rx="3" fill={decorBorder} />
-        <rect x="35" y="88" width="30" height="6" rx="3" fill={decorBorder} />
-        <rect x="70" y="88" width="35" height="6" rx="3" fill={decorBorder} />
-        {category === "mobile" && (
-          <rect x="110" y="15" width="65" height="120" rx="10" fill={decorColor} stroke={decorBorder} strokeWidth="1" />
-        )}
-        {category === "web" && (
-          <rect x="110" y="15" width="65" height="60" rx="6" fill={decorColor} stroke={decorBorder} strokeWidth="1" />
-        )}
+      <rect width="400" height="8" fill={accent} />
+
+      <circle cx="80" cy="70" r="55" fill={accentLight} />
+      <text
+        x="80"
+        y="78"
+        textAnchor="middle"
+        fontFamily="system-ui, -apple-system, sans-serif"
+        fontSize="32"
+        fontWeight="700"
+        fill={accent}
+      >
+        {initials}
+      </text>
+
+      <g
+        transform="translate(260, 50) scale(0.6)"
+        stroke={accentMuted}
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+      >
+        <path d={iconPath} />
       </g>
 
       <text
-        x="24"
-        y="262"
+        x="28"
+        y="210"
         fontFamily="system-ui, -apple-system, sans-serif"
-        fontSize="28"
+        fontSize="18"
         fontWeight="700"
-        fill={textColor}
+        fill="#1f2937"
       >
-        {getProjectInitials(title)}
+        {title.length > 22 ? title.slice(0, 20) + "..." : title}
       </text>
+
+      <rect x="28" y="222" width="32" height="3" rx="1.5" fill={accent} />
+
       <text
-        x="24"
-        y="280"
+        x="28"
+        y="260"
         fontFamily="system-ui, -apple-system, sans-serif"
-        fontSize="10"
+        fontSize="11"
         fontWeight="500"
-        fill={metaColor}
+        fill="#9ca3af"
       >
         {category === "case-study"
           ? "Case Study"
-          : category.charAt(0).toUpperCase() + category.slice(1)}
+          : category === "mobile"
+          ? "Mobile Design"
+          : "Web Design"}
       </text>
-      <rect x="24" y="288" width="24" height="2.5" rx="1.25" fill={decorBorder} />
+
+      <rect x="28" y="272" width="100" height="2" rx="1" fill={accentLight} />
     </svg>
   );
 }
