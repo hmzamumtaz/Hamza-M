@@ -9,15 +9,28 @@ const skills = [
   { name: "AI-Driven Design", level: 92 },
 ];
 
-const tools = [
-  "Figma", "Adobe XD", "Sketch", "Miro", "Maze", "Visily",
-  "Indesign", "Zeplin", "Jira", "Webflow", "Framer",
-  "Loveable", "Claude", "VS Code", "Cursor", "UX Pilot",
-  "Stitch", "Google AI Studio", "Banani", "Confluence",
-  "Mural", "Kanban", "AI Frontend Development", "Synthesia",
+const toolCategories = [
+  {
+    label: "Design & Prototyping",
+    items: ["Figma", "Adobe XD", "Sketch", "Indesign", "Visily", "Framer", "Zeplin", "Stitch"],
+  },
+  {
+    label: "UX Research & Testing",
+    items: ["Miro", "Mural", "Maze", "UX Pilot"],
+  },
+  {
+    label: "AI & Development",
+    items: ["Claude", "Google AI Studio", "Loveable", "Cursor", "VS Code", "Synthesia", "Banani", "AI Frontend Development"],
+  },
+  {
+    label: "Project Management",
+    items: ["Jira", "Confluence", "Kanban"],
+  },
+  {
+    label: "No-Code & Web",
+    items: ["Webflow"],
+  },
 ];
-
-
 
 export default function About() {
   return (
@@ -63,20 +76,24 @@ export default function About() {
               </div>
             </div>
 
-            <div className="mt-6">
-              <h4 className="text-xs font-semibold text-gray-900 uppercase tracking-wider mb-4">
-                Tools & Technologies
-              </h4>
-              <div className="flex flex-wrap gap-2">
-                {tools.map((tool) => (
-                  <span
-                    key={tool}
-                    className="rounded-md border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-medium text-gray-600"
-                  >
-                    {tool}
-                  </span>
-                ))}
-              </div>
+            <div className="mt-6 space-y-5">
+              {toolCategories.map((cat) => (
+                <div key={cat.label}>
+                  <h4 className="text-xs font-semibold text-gray-900 uppercase tracking-wider mb-2.5">
+                    {cat.label}
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {cat.items.map((tool) => (
+                      <span
+                        key={tool}
+                        className="rounded-md border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-medium text-gray-600"
+                      >
+                        {tool}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
