@@ -75,26 +75,6 @@ export default function About() {
                 Google UX Certified
               </div>
             </div>
-
-            <div className="mt-6 grid grid-cols-2 gap-3">
-              {toolCategories.map((cat) => (
-                <div key={cat.label} className="rounded-lg border border-gray-200 bg-white p-3 shadow-sm">
-                  <h4 className="text-[10px] font-semibold text-[#0d7377] uppercase tracking-wider mb-2">
-                    {cat.label}
-                  </h4>
-                  <div className="flex flex-wrap gap-1.5">
-                    {cat.items.map((tool) => (
-                      <span
-                        key={tool}
-                        className="rounded-md border border-gray-100 bg-gray-50 px-2 py-0.5 text-[10px] font-medium text-gray-500"
-                      >
-                        {tool}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
 
           <div className="md:col-span-2">
@@ -118,6 +98,31 @@ export default function About() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+
+        <div className="mt-16">
+          <div className="text-xs uppercase tracking-widest text-[#0d7377] font-medium mb-6">
+            Tools & Technologies
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+            {toolCategories.map((cat) => (
+              <div key={cat.label} className="rounded-lg border border-gray-200 bg-white p-3 shadow-sm">
+                <h4 className="text-[10px] font-semibold text-[#0d7377] uppercase tracking-wider mb-2">
+                  {cat.label}
+                </h4>
+                <div className="flex flex-wrap gap-1.5">
+                  {cat.items.map((tool) => (
+                    <span
+                      key={tool}
+                      className="rounded-md border border-gray-100 bg-gray-50 px-2 py-0.5 text-[10px] font-medium text-gray-500"
+                    >
+                      {tool}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
