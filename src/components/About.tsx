@@ -84,14 +84,14 @@ export default function About() {
               Skills & Expertise
             </h3>
 
-            <div className="space-y-5">
+            <div className="grid grid-cols-2 gap-3">
               {skills.map((skill) => (
-                <div key={skill.name}>
-                  <div className="flex justify-between items-center mb-1.5">
+                <div key={skill.name} className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
+                  <div className="flex items-center justify-between mb-3">
                     <span className="text-sm font-medium text-gray-700">{skill.name}</span>
-                    <span className="text-xs font-medium text-[#0d7377]">{skill.level}%</span>
+                    <span className="text-[11px] font-semibold text-[#0d7377]">{skill.level}%</span>
                   </div>
-                  <div className="h-2.5 rounded-full bg-gray-100 overflow-hidden">
+                  <div className="h-1.5 rounded-full bg-gray-100 overflow-hidden">
                     <div
                       className="h-full rounded-full bg-gradient-to-r from-[#0d7377] to-[#14a8ad] transition-all duration-1000"
                       style={{ width: `${skill.level}%` }}

@@ -56,8 +56,9 @@ export default function Hero() {
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-gray-900 mb-5">
-              Hi, I&apos;m{" "}
-              <span className="text-[#0d7377]">Hamza M.</span>
+              Hi, I&apos;m
+              <br />
+              <span className="text-[#0d7377] whitespace-nowrap">Hamza M.</span>
             </h1>
 
             <p className="text-lg text-gray-500 leading-relaxed mb-8 max-w-lg">
